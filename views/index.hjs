@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <form method="post" action="/generate">
+    	<label>Image 1:</label><input type="text" name="image-1">
+    	<label>Name 1:</label><input type="text" name="name-1">
+    	<input type="submit" value="send">
+    </form>
+
+  </body>
+</html>
