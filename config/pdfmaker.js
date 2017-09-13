@@ -66,30 +66,30 @@ pdfMaker.prototype = {
 			docDefinition.content.push(
 			{
 				text : `Name: `,
-				style: 'header',
+				style: 'header'
 			},
 			'\n',
 			{
 				text : `${img.name}`,
-				style: 'normal',
+				style: 'normal'
 			},
 			'\n',
 			'\n',
 			{
 				text : `Params: `,
-				style: 'header',
+				style: 'header'
 			},
 			'\n',
 			{
 				text : `${img.params}`,
-				style: 'normal',
+				style: 'normal'
 			},
 			'\n',
 			{
 				image     : `./${img.path}`,
 				pageBreak : 'after',
-				fit       : [510, 510],
-			},
+				fit       : [510, 510]
+			}
 			)
 		});
 
