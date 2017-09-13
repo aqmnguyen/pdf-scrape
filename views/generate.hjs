@@ -3,11 +3,21 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+    <script type="text/javascript" src="/javascripts/scripts-generate.js"></script>
+    <script type="text/javascript">
+    	const pdfPath = '{{ pdfPath }}';
+    	setTimeout(function(){ 
+    		window.location.assign(pdfPath);
+    	}, 500);
+    </script>
+
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
-
-    <a href="{{ pdfPath }}">Download PDF</a>
+  	Generating PDF - You will be automatically re-directed
+    <!-- <a href="{{ pdfPath }}">Download PDF</a> -->
   </body>
 </html>

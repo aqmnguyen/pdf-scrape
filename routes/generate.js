@@ -3,6 +3,7 @@ const router 		= express.Router();
 const pdfmaker 	= require('../config/pdfmaker');
 const pdfMaker  = new pdfmaker();
 
+// Sample payload
 // const payload = [
 //     {
 //       params : '?mi_display=test&mi_lat=33.4499672&mi_lon=-112.0724112&mi_eaddr=0&mi_update=0816&mi_h_cluster=3&mi_f_cluster=1',
@@ -23,17 +24,21 @@ function requestPayLoad(body){
 	const imagesPassed = (Object.keys(body).length) / 2;
 
 	for (let i = 1; i <= imagesPassed; i++) {
-		const imgPath = body[`image-${i}`] || null;
-		const src 		= imgPath.split('?')[0];
-		const params 	= (imgPath.split('?')[1]) ? '?' + imgPath.split('?')[1] : '';
-		const name 		= body[`name-${i}`] || null;
+		
+		if(body[`image-${i}`]){
+			
+			const imgPath = body[`image-${i}`] || null;
+			const src 		= imgPath.split('?')[0];
+			const params 	= (imgPath.split('?')[1]) ? '?' + imgPath.split('?')[1] : '';
+			const name 		= body[`name-${i}`] || null;
 
-		if(imgPath){
-			payload.push({
-				src,
-				params,
-				name
-			});
+			if(imgPath){
+				payload.push({
+					src,
+					params,
+					name
+				});
+			}
 		}
 
 	};
@@ -51,17 +56,18 @@ router.post('/', function(req, res, next) {
 		// handle error
 	}
 
-	console.log(payload);
 	const data = pdfMaker.init(payload);
 
 	Promise.all(data.pdfPromise).then((screenshots) => {
 			
-		const pdfPath = pdfMaker.createPDF(data.filePaths);
-		console.log(pdfPath);
+		const object = pdfMaker.createPDF(data.filePaths);
+		// console.log(object);
 
 		const renderObject = {
-			title 		: 'Express',
-			pdfPath		: pdfPath
+			title 		: 'Re-direct',
+			pdfPath		: object.pdfPath.replace('./public', ''),
+			raw				: object.rawData,
+			string		: object.dataString
 		}
 
 		res.render('generate', renderObject);

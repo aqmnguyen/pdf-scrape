@@ -6,8 +6,7 @@ const pdfMaker  = new pdfmaker();
 router.get('/', function(req, res, next) {
 
 	const renderObject = {
-		title 		: 'Express',
-		pdfPath		: ''
+		title 		: 'PDF Creator'
 	}
 
 	res.render('index', renderObject);
