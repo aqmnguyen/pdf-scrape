@@ -121,7 +121,8 @@ pdfMaker.prototype = {
 async function takeScreenShot(img, path){
 	try{
 
-		const browser = await puppeteer.launch({headless : true});
+		// const browser = await puppeteer.launch({headless : true});
+		const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 		const page    = await browser.newPage();
 		await page.goto(img, {waitUntil : 'networkidle'});
 
