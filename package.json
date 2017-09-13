@@ -1,18 +1,24 @@
 {
-  "name": "mi-snapshot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "pdf-scrape",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "hjs": "~0.0.6",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
     "html-pdf": "^2.1.0",
     "moment": "^2.18.1",
     "pdfmake": "^0.1.32",
-    "puppeteer": "^0.10.1"
+    "puppeteer": "^0.10.1",
+    "nodemon": "^1.12.0",
+    "node-sass-middleware": "^0.11.0",
+    "firebase": "^4.3.1"
   }
 }

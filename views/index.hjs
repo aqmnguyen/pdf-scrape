@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="/javascripts/scripts.js"></script>
+  </head>
+  <body>
+    <div class="container">
+
+      <form class="image-form" method="post" action="/generate">
+
+      	<div class="inputs">
+          <label>Image 1:</label>
+          <input type="text" name="image-1">
+        	<label>Name 1:</label>
+          <input type="text" name="name-1" class="border">
+        </div>
+
+        <input type="hidden" class="current-images" value="1">
+        <input type="button" class="add" value="Add Image">
+      	<input type="submit" class="submit" value="Generate">
+      
+      </form>
+    </div>
+
+  </body>
+</html>
