@@ -19,10 +19,12 @@ pdfMaker.prototype = {
 			const path       = `png/${timeStamp}__${img.name.split(' ').join('-').toLowerCase()}.png`;
 			const imgSrc     = `${img.src}${img.params}`;
 
+
 			filePaths.push({
 				path   : path,
 				name   : img.name,
 				params : img.params,
+				imgSrc : imgSrc
 			})
 
 			return takeScreenShot(imgSrc, path);
@@ -63,6 +65,8 @@ pdfMaker.prototype = {
 
 		filePaths.forEach((img) =>{
 
+			// console.log(img);
+
 			docDefinition.content.push(
 			{
 				text : `Name: `,
@@ -74,6 +78,15 @@ pdfMaker.prototype = {
 				style: 'normal'
 			},
 			'\n',
+			{
+				text : `Full Image Path: `,
+				style: 'header'
+			},
+			'\n',
+			{
+				text : `${img.imgSrc}`,
+				style: 'normal'
+			},
 			'\n',
 			{
 				text : `Params: `,
